@@ -439,7 +439,7 @@ VertexOutputForwardBase vertForwardBase(VertexInput v, half FUR_OFFSET = 0)
     #endif
 
     //We need this for shadow receving
-    UNITY_TRANSFER_LIGHTING(o, v.uv1);
+    UNITY_TRANSFER_SHADOW(o, v.uv1);
 
     o.ambientOrLightmapUV = VertexGIForward(v, posWorld, normalWorld);
 
@@ -573,7 +573,7 @@ VertexOutputForwardAdd vertForwardAdd (VertexInput v)
         o.tangentToWorldAndLightDir[2].xyz = normalWorld;
     #endif
     //We need this for shadow receiving and lighting
-    UNITY_TRANSFER_LIGHTING(o, v.uv1);
+    UNITY_TRANSFER_SHADOW(o, v.uv1);
 
     float3 lightDir = _WorldSpaceLightPos0.xyz - posWorld.xyz * _WorldSpaceLightPos0.w;
     #ifndef USING_DIRECTIONAL_LIGHT
